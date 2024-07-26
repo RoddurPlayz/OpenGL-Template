@@ -24,8 +24,9 @@ option(IS_PRODUCTION "The project is in production or not" OFF)
 if(IS_PRODUCTION)
     message(STATUS "${CMAKE_PROJECT_NAME} is in production. The RESOURCE_PATH macro is set to ./resources/")
     target_compile_definitions(
-    ${CMAKE_PROJECT_NAME}
-    PRIVATE RESOURCE_PATH="./resources/"
+        ${CMAKE_PROJECT_NAME}
+        PRIVATE ON_PRODUCTION
+        PRIVATE RESOURCE_PATH="./resources/"
     )
 
     if(MSVC)
@@ -81,7 +82,7 @@ if(IS_PRODUCTION)
 else()
     message(STATUS "${CMAKE_PROJECT_NAME} is not in production. The RESOURCE_PATH macro is set to ${CMAKE_CURRENT_SOURCE_DIR}/resources/")
     target_compile_definitions(
-    ${CMAKE_PROJECT_NAME}
-    PRIVATE RESOURCE_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/"
+        ${CMAKE_PROJECT_NAME}
+        PRIVATE RESOURCE_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/"
     )
 endif()
