@@ -48,7 +48,7 @@ Step 3: Compile the template for testing by using your desired IDE/Code Editor o
 cd ..
 cmake --build build
 ```
-Step 4: Run the executable for testing by using your desired IDE/Code Editor or by navigating to the root/build/Main and running the OpenGL-Template executable.
+Step 4: Run the executable for testing by using your desired IDE/Code Editor or by navigating to the root/build/Main and running the OpenGL-Executable executable.
 Step 5: Customize the root/Main directory however you wish and rename the project in root/Main/CMakeLists.txt to whatever you wish. You can also change the root/Main directory's name if you like but then in the root/CMakeLists.txt, you will have to change the add_subdirectory command at line 37 to whatever you named the root/Main directory.
 
 NOTE:

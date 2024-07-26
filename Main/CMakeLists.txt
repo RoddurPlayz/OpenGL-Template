@@ -1,30 +1,30 @@
 cmake_minimum_required(VERSION 3.5)
 
 
-project(OpenGL)
+project(OpenGL-Executable)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(
-    ${CMAKE_PROJECT_NAME} PRIVATE
+    ${PROJECT_NAME} PRIVATE
     enet glad libglew_static glm imgui miniaudio stb_image stb_truetype
 )
 
 target_compile_definitions(
-    ${CMAKE_PROJECT_NAME}
+    ${PROJECT_NAME}
     PRIVATE GLEW_STATIC
 )
 
 option(IS_PRODUCTION "The project is in production or not" OFF)
 if(IS_PRODUCTION)
-    message(STATUS "${CMAKE_PROJECT_NAME} is in production. The RESOURCE_PATH macro is set to ./resources/")
+    message(STATUS "${PROJECT_NAME} is in production. The RESOURCE_PATH macro is set to ./resources/")
     target_compile_definitions(
-        ${CMAKE_PROJECT_NAME}
+        ${PROJECT_NAME}
         PRIVATE ON_PRODUCTION
         PRIVATE RESOURCE_PATH="./resources/"
     )
@@ -65,24 +65,24 @@ if(IS_PRODUCTION)
 
     if(WIN32)
     set_target_properties(
-        ${CMAKE_PROJECT_NAME} PROPERTIES
+        ${PROJECT_NAME} PROPERTIES
         WIN32_EXECUTABLE YES
     )
     elseif(APPLE)
         set_target_properties(
-            ${CMAKE_PROJECT_NAME} PROPERTIES
+            ${PROJECT_NAME} PROPERTIES
             MACOSX_BUNDLE YES
         )
     elseif(UNIX)
         set_target_properties(
-            ${CMAKE_PROJECT_NAME} PROPERTIES
+            ${PROJECT_NAME} PROPERTIES
             LINK_FLAGS "-mwindows"
         )
     endif()
 else()
-    message(STATUS "${CMAKE_PROJECT_NAME} is not in production. The RESOURCE_PATH macro is set to ${CMAKE_CURRENT_SOURCE_DIR}/resources/")
+    message(STATUS "${PROJECT_NAME} is not in production. The RESOURCE_PATH macro is set to ${CMAKE_CURRENT_SOURCE_DIR}/resources/")
     target_compile_definitions(
-        ${CMAKE_PROJECT_NAME}
+        ${PROJECT_NAME}
         PRIVATE RESOURCE_PATH="${CMAKE_CURRENT_SOURCE_DIR}/resources/"
     )
 endif()
