@@ -1,0 +1,9 @@
+.vscode/
+/out
+bin/
+build/
+/.vs
+.idea/
+CMakeSettings.json
+
+Libraries/TODO.txt
