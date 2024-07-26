@@ -1,24 +1,18 @@
 # OpenGL-Template
 
-//------------------------------//
-// What is OpenGL-Template?
-//------------------------------//
+//------------------------------// What is OpenGL-Template? //------------------------------//
 
 It is an OpenGL Template for C++.
 
 
 
-//------------------------------//
-// What its purpose?
-//------------------------------//
+//------------------------------// What its purpose? //------------------------------//
 
 This OpenGL Template was made to make game developers lives a bit easier by already seting up the building for them. That way they can easily jump right in and start coding making the games they want using OpenGL.
 
 
 
-//------------------------------//
-// What its purpose?
-//------------------------------//
+//------------------------------// What its purpose? //------------------------------//
 
 This template includes:
 1) ENet (Networking)
@@ -32,17 +26,13 @@ This template includes:
 
 
 
-//------------------------------//
-// Will it get updated?
-//------------------------------//
+//------------------------------// Will it get updated? //------------------------------//
 
 Yes. I'll still try to update this template and add small improvements (If there is any need of new improvements).
 
 
 
-//------------------------------//
-// How to use it?
-//------------------------------//
+//------------------------------// How to use it? //------------------------------//
 
 I'm going to refer the root directory of this template d as "root"
 
