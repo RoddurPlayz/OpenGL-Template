@@ -18,11 +18,15 @@ int main()
     GLFWwindow *window;
 
     if (!glfwInit())
+    {
+        std::cout << "GLFW failed to initialize!" << "\n";
         return -1;
+    }
 
     window = glfwCreateWindow(640, 480, "OpenGL", NULL, NULL);
     if (!window)
     {
+        std::cout << "GLFW failed to create a window!" << "\n";
         glfwTerminate();
         return -1;
     }
@@ -30,7 +34,7 @@ int main()
     glfwMakeContextCurrent(window);
     if (glewInit() != GLEW_OK)
     {
-        std::cout << "Glew failed to initialize" << "\n";
+        std::cout << "Glew failed to initialize!" << "\n";
         return -1;
     }
 
