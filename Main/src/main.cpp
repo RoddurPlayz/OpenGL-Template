@@ -11,6 +11,7 @@
 #include <enet/enet.h>
 
 #include "shader.h"
+#include "GLerror.h"
 
 
 int main()
@@ -37,6 +38,7 @@ int main()
         std::cout << "Glew failed to initialize!" << "\n";
         return -1;
     }
+    GLInitError();
 
     std::stringstream title;
     title << "OpenGL: " << glGetString(GL_VERSION) << "\n";
@@ -67,6 +69,7 @@ int main()
 
     ShaderProgram shader{ RESOURCE_PATH "vert.glsl", RESOURCE_PATH "frag.glsl" };
     shader.bind();
+
 
     while (!glfwWindowShouldClose(window))
     {
