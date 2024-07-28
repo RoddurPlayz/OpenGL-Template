@@ -1,8 +1,11 @@
+# Set the minimum version which is required to run this cmake project
 cmake_minimum_required(VERSION 3.5)
 
 
+# Create a project
 project(OpenGL-Template)
 
+# Choose a Build Type
 set(BUILD_TYPE "Debug")
 if(BUILD_TYPE STREQUAL "Debug")
     message(STATUS "Build Type: Debug")
@@ -20,6 +23,7 @@ else()
     message(FATAL_ERROR "Unknown Build Type: ${BUILD_TYPE}")
 endif()
 
+# Choose a Build Architecture
 set(BUILD_ARCHITECTURE "x64")
 if(BUILD_ARCHITECTURE STREQUAL "x64")
     message(STATUS "Build Architecture: x64")
@@ -34,6 +38,7 @@ else()
 endif()
 
 
+# Add all directories with CMakeLists.txt files
 add_subdirectory(Main)
 add_subdirectory(Libraries/enet)
 add_subdirectory(Libraries/glad)
