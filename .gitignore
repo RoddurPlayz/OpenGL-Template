@@ -6,4 +6,6 @@ build/
 .idea/
 CMakeSettings.json
 
-./Libraries/TODO.txt
+Libraries/TODO.txt
+
+cmds/*.sh

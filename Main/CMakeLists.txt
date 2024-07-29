@@ -26,18 +26,17 @@ target_compile_definitions(
     PRIVATE GLEW_STATIC
 )
 
-#Choose if this project should be built for production
+# Choose if this project should be built for production
 option(IS_PRODUCTION "The project is in production or not" OFF)
 if(IS_PRODUCTION)
-    # Link with the Runtime Library statically
+    # Link with the Runtime Library statically and hide the terminal
+    message(STATUS "Runtime Library: Linked Statically")
     if(MSVC)
-    foreach(config DEBUG RELEASE MINSIZEREL RELWITHDEBINFO)
-        string(TOUPPER ${config} config_upper)
-        set(CMAKE_CXX_FLAGS_${config_upper} "${CMAKE_CXX_FLAGS_${config_upper}} /MT")
-    endforeach()
-    endif()
+        set_property(TARGET "${PROJECT_NAME}" PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug<$<CONFIG:Debug>:Debug>")
+        set_property(TARGET "${PROJECT_NAME}" PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
 
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:WINDOWS /ENTRY:mainCRTStartup")
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
         find_library(STDCXX_LIBRARY stdc++)
         find_library(GCC_LIBRARY gcc)
         get_filename_component(STDCXX_LIBRARY_PATH ${STDCXX_LIBRARY} DIRECTORY)
@@ -48,6 +47,15 @@ if(IS_PRODUCTION)
             ${STDCXX_LIBRARY_PATH}/libstdc++.so.6
             ${GCC_LIBRARY_PATH}/libgcc_s.so.1
         )
+
+        if(WIN32)
+            set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "-mwindows")
+        elseif(APPLE)
+            set_target_properties(
+                ${PROJECT_NAME} PROPERTIES
+                MACOSX_BUNDLE YES
+            )
+        endif()
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         find_library(CLANG_CXX_LIBRARY c++)
         find_library(CLANG_GCC_LIBRARY gcc_s)
@@ -59,26 +67,27 @@ if(IS_PRODUCTION)
             ${CLANG_CXX_LIBRARY_PATH}/libc++.so.1
             ${CLANG_GCC_LIBRARY_PATH}/libgcc_s.so.1
         )
+
+        if(WIN32)
+            target_link_libraries(${PROJECT_NAME} PRIVATE "-Wl,-subsystem,windows")
+        elseif(APPLE)
+            set_target_properties(
+                ${PROJECT_NAME} PROPERTIES
+                MACOSX_BUNDLE YES
+            )
+        endif()
     endif()
 
-    # Notifiy about the operating system and terminal status
+    # Notifiy about the operating system
     if(WIN32)
+        message(STATUS "Terminal Status: Hidden")
         message(STATUS "Operating System: Windows")
-        message(STATUS "Terminal Status: Hidden")
-        set_target_properties(
-            ${PROJECT_NAME} PROPERTIES
-            WIN32_EXECUTABLE YES
-        )
     elseif(APPLE)
-        message(STATUS "Operating System: MacOS")
         message(STATUS "Terminal Status: Hidden")
-        set_target_properties(
-            ${PROJECT_NAME} PROPERTIES
-            MACOSX_BUNDLE YES
-        )
+        message(STATUS "Operating System: MacOS")
     elseif(UNIX)
-        message(STATUS "Operating System: Linux")
         message(STATUS "Terminal Status: Doesn't Matter")
+        message(STATUS "Operating System: Linux")
     endif()
 
     # Set the resource path to be relative with the current CMakeLists.txt
@@ -89,25 +98,19 @@ if(IS_PRODUCTION)
         PRIVATE RESOURCE_PATH="./resources/"
     )
 else()
-
-    # Notify about the operating system and terminal status
+    # Notify about the runtime library status
+    message(STATUS "Runtime Library: Not Linked Statically")
+    # Notify about the terminal status and operating system
     if(WIN32)
+        message(STATUS "Terminal Status: Not Hidden")
         message(STATUS "Operating System: Windows")
-        message(STATUS "Terminal Status: Not Hidden")
-        set_target_properties(
-            ${PROJECT_NAME} PROPERTIES
-            WIN32_EXECUTABLE YES
-        )
     elseif(APPLE)
-        message(STATUS "Operating System: MacOS")
         message(STATUS "Terminal Status: Not Hidden")
-        set_target_properties(
-            ${PROJECT_NAME} PROPERTIES
-            MACOSX_BUNDLE YES
-        )
+        message(STATUS "Operating System: MacOS")
     elseif(UNIX)
-        message(STATUS "Operating System: Linux")
         message(STATUS "Terminal Status: Doesn't Matter")
+        set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "")
+        message(STATUS "Operating System: Linux")
     endif()
 
     # Set the resource path to be relative to the executable
