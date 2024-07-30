@@ -5,6 +5,9 @@ cmake_minimum_required(VERSION 3.5)
 # Create a project
 project(OpenGL-Template)
 
+# Generate Compile Commands
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Notify about the compiler
 if(MSVC)
     message(STATUS "Compiler: MSVC")

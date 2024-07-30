@@ -8,4 +8,4 @@ CMakeSettings.json
 
 Libraries/TODO.txt
 
-cmds/*.sh
+compile_commands.json
