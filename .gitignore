@@ -6,7 +6,5 @@ build/
 .idea/
 CMakeSettings.json
 
-Libraries/TODO.txt
-
 .cache/
 compile_commands.json

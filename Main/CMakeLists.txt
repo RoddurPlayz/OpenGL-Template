@@ -27,7 +27,7 @@ target_compile_definitions(
 )
 
 # Choose if this project should be built for production
-set(IS_PRODUCTION ON CACHE BOOL "The project is in production or not" FORCE)
+set(IS_PRODUCTION OFF CACHE BOOL "The project is in production or not" FORCE)
 if(IS_PRODUCTION)
     # Link with the Runtime Library statically and hide the terminal
     message(STATUS "Runtime Library: Linked Statically")
