@@ -17,7 +17,7 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(
     ${PROJECT_NAME} PRIVATE
-    enet glad libglew_static glm imgui miniaudio stb_image stb_truetype
+    enet glad libglew_static glm imgui miniaudio OpenAL stb_image stb_truetype
 )
 
 # Add a macro for this project (This is required for GLEW to be linked statically)
@@ -27,7 +27,7 @@ target_compile_definitions(
 )
 
 # Choose if this project should be built for production
-option(IS_PRODUCTION "The project is in production or not" OFF)
+set(IS_PRODUCTION ON CACHE BOOL "The project is in production or not" FORCE)
 if(IS_PRODUCTION)
     # Link with the Runtime Library statically and hide the terminal
     message(STATUS "Runtime Library: Linked Statically")

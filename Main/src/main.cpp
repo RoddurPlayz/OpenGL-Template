@@ -8,6 +8,7 @@
 #include <imgui.h>
 
 #include <miniaudio.h>
+#include <AL/al.h>
 
 #include <enet/enet.h>
 
@@ -70,7 +71,6 @@ int main()
 
     ShaderProgram shader{ RESOURCE_PATH "vert.glsl", RESOURCE_PATH "frag.glsl" };
     shader.bind();
-
 
     while (!glfwWindowShouldClose(window))
     {

@@ -57,9 +57,18 @@ ShaderProgram::ShaderProgram(const char *vertex_shader_path, const char *fragmen
     glValidateProgram(m_ProgramID);
 }
 
-unsigned int ShaderProgram::getProgramID() { return m_ProgramID; }
-unsigned int ShaderProgram::getVertexShaderID() { return m_VertexShaderID; }
-unsigned int ShaderProgram::getFragmentShaderID() { return m_FragmentShaderID; }
+unsigned int ShaderProgram::getProgramID()
+{
+    return m_ProgramID;
+}
+unsigned int ShaderProgram::getVertexShaderID()
+{
+    return m_VertexShaderID;
+}
+unsigned int ShaderProgram::getFragmentShaderID()
+{
+    return m_FragmentShaderID;
+}
 
 void ShaderProgram::bind() { glUseProgram(m_ProgramID); }
 

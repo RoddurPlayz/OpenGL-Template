@@ -17,14 +17,6 @@ int checkShaderError(const char *shader_name, unsigned int shader_id);
 
 class ShaderProgram
 {
-private:
-    unsigned int m_VertexShaderID;
-    std::string m_VertexShader;
-
-    unsigned int m_FragmentShaderID;
-    std::string m_FragmentShader;
-
-    unsigned int m_ProgramID;
 public:
     ShaderProgram(const char *vertex_shader_path, const char *fragment_shader_path);
 
@@ -35,4 +27,12 @@ public:
     void bind();
 
     ~ShaderProgram();
+private:
+    unsigned int m_VertexShaderID;
+    std::string m_VertexShader;
+
+    unsigned int m_FragmentShaderID;
+    std::string m_FragmentShader;
+
+    unsigned int m_ProgramID;
 };
