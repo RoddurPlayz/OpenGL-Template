@@ -69,7 +69,7 @@ int main()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, 6 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 
-    ShaderProgram shader{ RESOURCE_PATH "vert.glsl", RESOURCE_PATH "frag.glsl" };
+    ShaderProgram shader{ RESOURCE_PATH "shaders/test/vert.glsl", RESOURCE_PATH "shaders/test/frag.glsl" };
     shader.bind();
 
     while (!glfwWindowShouldClose(window))
