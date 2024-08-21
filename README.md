@@ -15,14 +15,16 @@ This OpenGL Template was made to make game developers lives a bit easier by alre
 //------------------------------// What its purpose? //------------------------------//
 
 This template includes:
-1) ENet (Networking)
-2) Glad/Glew (Both are an extension of OpenGL. It's upto the developer's preference on which one to use.)
-3) GLFW (Windowing)
-4) GLM (Math library for OpenGL)
-5) ImGUI (UI)
-6) Miniaudio (Audio)
-7) stb_image (Image)
-8) stb_truetype (Font)
+1) Assimp # (Model loading)
+2) ENet (Networking)
+3) Glad/Glew (Both are an extension of OpenGL. It's upto the developer's preference on which one to use. And Glad is a REQUIRED DEPENDENCY.)
+4) GLFW (Windowing)
+5) GLM (Math library for OpenGL)
+6) ImGUI (UI)
+7) Miniaudio (2D Audio)
+8) OpenAL (3D Audio)
+9) stb_image (Image)
+10) stb_truetype (Font)
 
 
 

@@ -54,6 +54,9 @@ endif()
 
 # Add all directories with CMakeLists.txt files
 add_subdirectory(Main)
+# Set some Assimp flags
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+add_subdirectory(Libraries/assimp)
 add_subdirectory(Libraries/enet)
 add_subdirectory(Libraries/glad)
 # Set some GLFW flags

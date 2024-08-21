@@ -1,19 +1,22 @@
 #include <iostream>
 #include <sstream>
 
+#include <assimp/mesh.h>
+
+#include <enet/enet.h>
+
 //#include <glad/glad.h>
-#include <GL/glew.h>
-#include <glm/glm.hpp>
+#include <GL/glew.h> // GLEW MUST BE INCLUDED ALWAYS AND IN EVERY FILE BEFORE GLFW IF YOU WANT TO USE IT !!!
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 #include <imgui.h>
 
 #include <miniaudio.h>
 #include <AL/al.h>
 
-#include <enet/enet.h>
-
-#include "shader.h"
 #include "GLerror.h"
+#include "GLFWfunctions.h"
+#include "shader.h"
 
 
 int main()
@@ -40,6 +43,7 @@ int main()
         std::cout << "Glew failed to initialize!" << "\n";
         return -1;
     }
+    initGlfwFuncs(window);
     GLInitError();
 
     std::stringstream title;

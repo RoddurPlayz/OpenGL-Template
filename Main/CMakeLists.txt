@@ -17,7 +17,8 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(
     ${PROJECT_NAME} PRIVATE
-    enet glad libglew_static glm imgui miniaudio OpenAL stb_image stb_truetype
+    assimp enet libglew_static glm imgui miniaudio OpenAL stb_image stb_truetype
+    #glad
 )
 
 # Add a macro for this project (This is required for GLEW to be linked statically)
