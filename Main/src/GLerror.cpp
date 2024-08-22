@@ -1,4 +1,4 @@
-#include "GLerror.h"
+#include "GLerror.hpp"
 
 
 void debugMessageCallback(

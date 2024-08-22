@@ -1,4 +1,4 @@
-#include "GLFWfunctions.h"
+#include "GLFWfunctions.hpp"
 
 
 void framebufferSizeCallback(GLFWwindow* window, int width, int height)

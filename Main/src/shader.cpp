@@ -1,4 +1,4 @@
-#include "shader.h"
+#include "shader.hpp"
 
 
 std::string readFile(const char *path)

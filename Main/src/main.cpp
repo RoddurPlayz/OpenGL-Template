@@ -14,9 +14,9 @@
 #include <miniaudio.h>
 #include <AL/al.h>
 
-#include "GLerror.h"
-#include "GLFWfunctions.h"
-#include "shader.h"
+#include "GLerror.hpp"
+#include "GLFWfunctions.hpp"
+#include "shader.hpp"
 
 
 int main()
