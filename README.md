@@ -22,9 +22,10 @@ This template includes:
 5) GLM (Math library for OpenGL)
 6) ImGUI (UI)
 7) Miniaudio (2D Audio)
-8) OpenAL (3D Audio)
-9) stb_image (Image)
-10) stb_truetype (Font)
+8) Nlohmann's JSON Library (For reading .json files)
+9) OpenAL (3D Audio)
+10) stb_image (Image)
+11) stb_truetype (Font)
 
 
 

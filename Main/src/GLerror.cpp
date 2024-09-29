@@ -4,7 +4,7 @@
 void debugMessageCallback(
     GLenum source, GLenum type, GLuint id,
     GLenum severity, GLsizei length,
-    const GLchar* message, const void* userParam
+    const GLchar* message, const void* user_param
 ) {
 
     std::cerr << "GL Debug Message [" << id << "]: " << message << std::endl;

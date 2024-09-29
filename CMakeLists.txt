@@ -72,6 +72,7 @@ add_subdirectory(Libraries/glfw)
 add_subdirectory(Libraries/glm)
 add_subdirectory(Libraries/imgui)
 add_subdirectory(Libraries/miniaudio)
+add_subdirectory(Libraries/nlohmann_json)
 # Set some OpenAL flags
 set(LIBTYPE STATIC)
 set(ALSOFT_UTILS OFF CACHE BOOL "" FORCE)

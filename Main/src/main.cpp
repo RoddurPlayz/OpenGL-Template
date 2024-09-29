@@ -1,18 +1,24 @@
 #include <iostream>
 #include <sstream>
 
-#include <assimp/mesh.h>
+//#include <assimp/mesh.h>
 
-#include <enet/enet.h>
+//#include <enet/enet.h>
 
 //#include <glad/glad.h>
 #include <GL/glew.h> // GLEW MUST BE INCLUDED ALWAYS AND IN EVERY FILE BEFORE GLFW IF YOU WANT TO USE IT !!!
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <imgui.h>
+//#include <glm/glm.hpp>
+//#include <glm/gtx/vector_angle.hpp>
+//#include <glm/gtc/type_ptr.hpp>
+//#include <imgui.h>
 
-#include <miniaudio.h>
-#include <AL/al.h>
+//#include <miniaudio.h>
+//#include <nlohmann/json.hpp>
+//#include <AL/al.h>
+
+//#include <stb_image/stb_image.h>
+//#include <stb_truetype/stb_truetype.h>
 
 #include "GLerror.hpp"
 #include "GLFWfunctions.hpp"
