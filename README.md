@@ -17,7 +17,7 @@ This OpenGL Template was made to make game developers lives a bit easier by alre
 This template includes:
 1) Assimp # (Model loading)
 2) ENet (Networking)
-3) Glad/Glew (Both are an extension of OpenGL. It's upto the developer's preference on which one to use. And Glad is a REQUIRED DEPENDENCY.)
+3) Glad (An extension of OpenGL)
 4) GLFW (Windowing)
 5) GLM (Math library for OpenGL)
 6) ImGUI (UI)

@@ -8,7 +8,7 @@
 #include <sstream>
 #include <fstream>
 
-#include <GL/glew.h>
+#include <glad/glad.h>
 
 
 std::string readFile(const char *path);
@@ -26,7 +26,7 @@ public:
 
     void bind();
 
-    ~ShaderProgram();
+    void destroy();
 private:
     unsigned int m_VertexShaderID;
     std::string m_VertexShader;

@@ -17,14 +17,12 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_link_libraries(
     ${PROJECT_NAME} PRIVATE
-    assimp enet libglew_static glm imgui miniaudio nlohmann_json OpenAL stb_image stb_truetype
-    #glad
+    assimp enet glad glm imgui miniaudio nlohmann_json OpenAL stb_image stb_truetype
 )
 
-# Add a macro for this project (This is required for GLEW to be linked statically and GLM to allow experimental features)
+# Add a macro for this project (This is required for GLM to allow experimental features)
 target_compile_definitions(
     ${PROJECT_NAME}
-    PRIVATE GLEW_STATIC
     PRIVATE GLM_ENABLE_EXPERIMENTAL
 )
 

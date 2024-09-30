@@ -72,11 +72,11 @@ unsigned int ShaderProgram::getFragmentShaderID()
 
 void ShaderProgram::bind() { glUseProgram(m_ProgramID); }
 
-ShaderProgram::~ShaderProgram()
+void ShaderProgram::destroy()
 {
     glDetachShader(m_ProgramID, m_VertexShaderID);
     glDeleteShader(m_VertexShaderID);
-    
+
     glDetachShader(m_ProgramID, m_FragmentShaderID);
     glDeleteShader(m_FragmentShaderID);
 

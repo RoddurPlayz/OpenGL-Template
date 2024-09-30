@@ -5,8 +5,8 @@
 
 //#include <enet/enet.h>
 
-//#include <glad/glad.h>
-#include <GL/glew.h> // GLEW MUST BE INCLUDED ALWAYS AND IN EVERY FILE BEFORE GLFW IF YOU WANT TO USE IT !!!
+#include <glad/glad.h>
+//#include <GL/glew.h> // GLEW MUST BE INCLUDED ALWAYS AND IN EVERY FILE BEFORE GLFW IF YOU WANT TO USE IT !!!
 #include <GLFW/glfw3.h>
 //#include <glm/glm.hpp>
 //#include <glm/gtx/vector_angle.hpp>
@@ -44,9 +44,9 @@ int main()
     }
 
     glfwMakeContextCurrent(window);
-    if (glewInit() != GLEW_OK)
+    if (!gladLoadGL())
     {
-        std::cout << "Glew failed to initialize!" << "\n";
+        std::cout << "Glad failed to initialize!" << "\n";
         return -1;
     }
     initGlfwFuncs(window);
@@ -93,6 +93,7 @@ int main()
         glfwPollEvents();
     }
 
+    shader.destroy();
     glfwTerminate();
 
     return 0;
