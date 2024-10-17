@@ -26,6 +26,8 @@
 
 int main()
 {
+    std::cout << PROJECT_NAME << ": " << PROJECT_VERSION << "\n";
+    
     GLFWwindow *window;
 
     if (!glfwInit())
