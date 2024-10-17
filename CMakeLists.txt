@@ -37,12 +37,12 @@ add_subdirectory(Libraries/openal)
 add_subdirectory(Libraries/stb_image)
 add_subdirectory(Libraries/stb_truetype)
 
-
 # Add the MSVC static runtime if using the MSVC compiler
 if (MSVC)
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
 endif()
+
 
 # Collect all Project Source Files
 file(GLOB_RECURSE PROJECT_SOURCES CONFIGURE_DEPENDS "${PROJECT_DIRECTORY}/src/*.cpp")
