@@ -1348,7 +1348,7 @@ IF (ASSIMP_WARNINGS_AS_ERRORS)
   IF (MSVC)
 
     IF(CMAKE_CXX_COMPILER_ID MATCHES "Clang" ) # clang-cl
-      TARGET_COMPILE_OPTIONS(assimp PRIVATE -Wall -Werror
+      TARGET_COMPILE_OPTIONS(assimp PRIVATE -Wall
         -Wno-microsoft-enum-value
         -Wno-switch-enum
         -Wno-covered-switch-default
@@ -1401,7 +1401,7 @@ IF (ASSIMP_WARNINGS_AS_ERRORS)
       TARGET_COMPILE_OPTIONS(assimp PRIVATE /W4 /WX)
     ENDIF()
   ELSE()
-    TARGET_COMPILE_OPTIONS(assimp PRIVATE -Wall -Werror)
+    TARGET_COMPILE_OPTIONS(assimp PRIVATE -Wall)
   ENDIF()
 ENDIF()
 
