@@ -104,7 +104,7 @@ if (ON_PRODUCTION)
     endif()
 
     if (MSVC)
-        # Notify if the Runtime Library is linked statically
+        # Link the Runtime Library statically
         set_property(TARGET "${CMAKE_PROJECT_NAME}" PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreadedDebug<$<CONFIG:Debug>:Debug>")
         set_property(TARGET "${CMAKE_PROJECT_NAME}" PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
     endif()
