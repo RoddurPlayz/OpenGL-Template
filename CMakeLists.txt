@@ -1,7 +1,6 @@
 # Set the minimum version which is required to run this cmake project
 cmake_minimum_required(VERSION 3.5)
 
-
 # Create a project
 project(OpenGL-Template VERSION 0.0.0)
 set(PROJECT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Main")
@@ -18,6 +17,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 add_subdirectory(Libraries/assimp)
 add_subdirectory(Libraries/enet)
+add_subdirectory(Libraries/entt)
 add_subdirectory(Libraries/glad)
 # Set some GLFW flags
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
@@ -36,6 +36,7 @@ set(ALSOFT_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory(Libraries/openal)
 add_subdirectory(Libraries/stb_image)
 add_subdirectory(Libraries/stb_truetype)
+add_subdirectory(Libraries/yaml-cpp)
 
 # Add the MSVC static runtime if using the MSVC compiler
 if (MSVC)
@@ -55,7 +56,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE "${PROJECT_DIRECTORY}/i
 # Link all Libraries
 target_link_libraries(
     ${CMAKE_PROJECT_NAME} PRIVATE
-    assimp enet glad glm imgui miniaudio nlohmann_json OpenAL stb_image stb_truetype
+    assimp enet entt glad glm imgui miniaudio nlohmann_json OpenAL stb_image stb_truetype yaml-cpp
 )
 
 # Add a macro for this project (This is required for GLM to allow experimental features)

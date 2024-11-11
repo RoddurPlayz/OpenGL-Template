@@ -5,6 +5,8 @@
 
 //#include <enet/enet.h>
 
+//#include <entt/entt.hpp>
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 //#include <glm/glm.hpp>
@@ -13,11 +15,15 @@
 //#include <imgui.h>
 
 //#include <miniaudio.h>
+
 //#include <nlohmann/json.hpp>
+
 //#include <AL/al.h>
 
 //#include <stb_image/stb_image.h>
 //#include <stb_truetype/stb_truetype.h>
+
+//#include <yaml-cpp/yaml.h>
 
 #include "GLerror.hpp"
 #include "GLFWfunctions.hpp"
