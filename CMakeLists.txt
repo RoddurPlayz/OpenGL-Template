@@ -8,7 +8,7 @@ set(PROJECT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/Main")
 # Generate Compile Commands
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Set C++ Standard to 17 and make C++ Standard a Requirement
+# Set C++ Standard and make C++ Standard a Requirement
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
